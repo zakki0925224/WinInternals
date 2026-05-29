@@ -22,7 +22,7 @@
     <VCProjectVersion>18.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
     <ProjectGuid>{2131ce23-17d8-4aa1-a788-fe943bb31a28}</ProjectGuid>
-    <RootNamespace>GetDllBaseAddress</RootNamespace>
+    <RootNamespace>ResolveFuncFromPeb</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

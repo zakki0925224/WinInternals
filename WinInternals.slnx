@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="GetDllBaseAddress/GetDllBaseAddress.vcxproj" />
+  <Project Path="ResolveFuncFromPeb/ResolveFuncFromPeb.vcxproj" Id="2131ce23-17d8-4aa1-a788-fe943bb31a28" />
 </Solution>
