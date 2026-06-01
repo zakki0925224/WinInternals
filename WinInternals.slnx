@@ -4,4 +4,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="ResolveFuncFromPeb/ResolveFuncFromPeb.vcxproj" Id="2131ce23-17d8-4aa1-a788-fe943bb31a28" />
+  <Project Path="StackBufferOverflow/StackBufferOverflow.vcxproj" Id="2e6c1c08-a30a-4e89-96c6-0648b1996be9" />
+  <File Path="scripts/generateBin.py" />
+  <File Path="scripts/generateRopBin.py" />
 </Solution>
