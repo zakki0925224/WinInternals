@@ -1,10 +1,7 @@
 from util import *
 from functools import reduce
 
-host = "127.0.0.1"
-port = 4444
-
-s = Socket(host, port)
+s = Socket("127.0.0.1", 4444)
 
 
 def cmd():

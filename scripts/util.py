@@ -1,7 +1,21 @@
 import socket
+import struct
 
-KENREL32_TO_BASE_THREAD_INIT_THUNK_OFFSET = 0x1FCB0
-KERNEL32_TO_VIRTUAL_PROTECT_STUB_OFFSET = 0x20760
+
+def le32(x: int) -> bytes:
+    return struct.pack("<I", x)
+
+
+def le64(x: int) -> bytes:
+    return struct.pack("<Q", x)
+
+
+def to_u32(data: bytes, pos: int) -> int:
+    return struct.unpack("<I", data[pos : pos + 4])[0]
+
+
+def to_u64(data: bytes, pos: int) -> int:
+    return struct.unpack("<Q", data[pos : pos + 8])[0]
 
 
 class Socket:
