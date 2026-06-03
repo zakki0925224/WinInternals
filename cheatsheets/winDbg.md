@@ -32,3 +32,4 @@
 | `!peb`         | Display PEB                                              |
 | `dps @esp`     | Display stack contents with symbols (use `@rsp` for x64) |
 | `db <address>` | Display raw memory bytes                                 |
+| `dv /t /V`     | Display local variables with types and values            |
