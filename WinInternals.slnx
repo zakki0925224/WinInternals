@@ -3,6 +3,7 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
+  <Project Path="Aarw/Aarw.vcxproj" Id="275d719c-a96b-4736-9edb-dd1bf50d30cf" />
   <Project Path="OobEx1/OobEx1.vcxproj" Id="f87dd564-123c-458e-8048-4b5aea4fb053" />
   <Project Path="OobRead1/OobRead1.vcxproj" Id="ad3f945d-54a5-4823-af30-cb35f742ea37" />
   <Project Path="OobRead2/OobRead2.vcxproj" Id="8db395a6-1321-4986-a472-b683b23c5d7e" />

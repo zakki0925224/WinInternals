@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- ===== デフォルト値 (コマンドラインで上書き可能) ===== -->
+  <PropertyGroup Label="SecurityDefaults">
+    <DYNAMICBASE  Condition="'$(DYNAMICBASE)'  == ''">true</DYNAMICBASE>
+    <NXCOMPAT     Condition="'$(NXCOMPAT)'     == ''">true</NXCOMPAT>
+    <SAFESEH      Condition="'$(SAFESEH)'      == ''">true</SAFESEH>
+    <CFG          Condition="'$(CFG)'          == ''">false</CFG>
+    <STACK_CANARY Condition="'$(STACK_CANARY)' == ''">true</STACK_CANARY>
+  </PropertyGroup>
+
+  <!-- ===== Release共通: 出力先を統一 ===== -->
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)obj\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+
+</Project>
