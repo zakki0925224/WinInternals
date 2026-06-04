@@ -16,7 +16,7 @@ struct Content {
 
 int func(void) {
     const HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
-    struct Content content = { 0 };
+    struct Content content = {0};
     DWORD br;
     unsigned int cmd = 0;
     name[0] = '\0';
@@ -27,51 +27,51 @@ int func(void) {
         scanf_s("%d", &cmd);
 
         switch (cmd) {
-        case CMD_GET_CONTENT:
-            if (content.len == 0) {
-                printf("Content is empty!\n");
-                break;
-            }
-
-            for (unsigned int i = 0; i < content.len; i++) {
-                printf("%02X ", (unsigned char)content.content[i]);
-            }
-            printf("\n");
-            break;
-
-        case CMD_SET_CONTENT:
-            if (content.len == 0) {
-                printf("content length: ");
-                scanf_s("%d", &cmd);
-
-                if (cmd > 0x10) {
-                    printf("Invalid content length!\n");
+            case CMD_GET_CONTENT:
+                if (content.len == 0) {
+                    printf("Content is empty!\n");
                     break;
                 }
 
-                content.len = cmd;
-            }
+                for (unsigned int i = 0; i < content.len; i++) {
+                    printf("%02X ", (unsigned char)content.content[i]);
+                }
+                printf("\n");
+                break;
 
-            printf("content: ");
+            case CMD_SET_CONTENT:
+                if (content.len == 0) {
+                    printf("content length: ");
+                    scanf_s("%d", &cmd);
 
-            ReadFile(hStdin, content.content, content.len, &br, NULL);
+                    if (cmd > 0x10) {
+                        printf("Invalid content length!\n");
+                        break;
+                    }
 
-            if (br >= 2)
-                content.content[br - 2] = '\0';
-            else
-                content.content[0] = '\0';
-            break;
-        case CMD_SET_NAME:
-            printf("name: ");
-            ReadFile(hStdin, name, 0x1000, &br, NULL);
+                    content.len = cmd;
+                }
 
-            if (br >= 2)
-                name[br - 2] = '\0';
-            else
-                name[0] = '\0';
-            break;
-        default:
-            goto END;
+                printf("content: ");
+
+                ReadFile(hStdin, content.content, content.len, &br, NULL);
+
+                if (br >= 2)
+                    content.content[br - 2] = '\0';
+                else
+                    content.content[0] = '\0';
+                break;
+            case CMD_SET_NAME:
+                printf("name: ");
+                ReadFile(hStdin, name, 0x1000, &br, NULL);
+
+                if (br >= 2)
+                    name[br - 2] = '\0';
+                else
+                    name[0] = '\0';
+                break;
+            default:
+                goto END;
         }
     }
 END:
