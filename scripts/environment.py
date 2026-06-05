@@ -1,5 +1,5 @@
-X86_SHELL_CODE: bytes = b""
-X64_SHELL_CODE: bytes = b""
+X86_SHELL_CODE: bytes = b"\xcc\xcc\xcc\xcc"
+X64_SHELL_CODE: bytes = b"\xcc\xcc\xcc\xcc"
 
-X86_OFFSET_BASE_THREAD_INIT_THUNK = 0x1FCB0
-X86_OFFSET_VIRTUAL_PROTECT_STUB = 0x20760
+X86_OFFSET_BaseThreadInitThunk = 0x1FCB0
+X86_OFFSET_VirtualProtectStub = 0x20760

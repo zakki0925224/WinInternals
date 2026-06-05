@@ -8,11 +8,13 @@
       <ImageHasSafeExceptionHandlers Condition="'$(Platform)'=='Win32'">$(SAFESEH)</ImageHasSafeExceptionHandlers>
       <GuardCF Condition="'$(CFG)'=='true'">Enable</GuardCF>
       <GuardCF Condition="'$(CFG)'!='true'">Disable</GuardCF>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>DebugFull</GenerateDebugInformation>
+      <ProgramDatabaseFile>$(OutDir)$(TargetName).pdb</ProgramDatabaseFile>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <BufferSecurityCheck>$(STACK_CANARY)</BufferSecurityCheck>
       <ControlFlowGuard Condition="'$(CFG)'=='true'">Guard</ControlFlowGuard>
       <ControlFlowGuard Condition="'$(CFG)'!='true'">false</ControlFlowGuard>

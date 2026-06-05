@@ -44,12 +44,12 @@ def main():
     )
 
     kernel32_address = (
-        kernel32_base_thread_init_thunk_address - X86_OFFSET_BASE_THREAD_INIT_THUNK
+        kernel32_base_thread_init_thunk_address - X86_OFFSET_BaseThreadInitThunk
     )
     print(f"kernel32: {hex(kernel32_address)}")
 
     kernel32_virtual_protect_stub_address = (
-        kernel32_address + X86_OFFSET_VIRTUAL_PROTECT_STUB
+        kernel32_address + X86_OFFSET_VirtualProtectStub
     )
 
     print(f"kernel32!VirtualProtectStub: {hex(kernel32_virtual_protect_stub_address)}")

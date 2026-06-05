@@ -1,7 +1,9 @@
 <Solution>
   <Configurations>
+    <Configuration Name="Debug" />
+    <Configuration Name="Release" />
     <Platform Name="x64" />
-    <Platform Name="x86" />
+    <Platform Name="Win32" />
   </Configurations>
   <Project Path="Aarw/Aarw.vcxproj" Id="275d719c-a96b-4736-9edb-dd1bf50d30cf" />
   <Project Path="OobEx1/OobEx1.vcxproj" Id="f87dd564-123c-458e-8048-4b5aea4fb053" />
