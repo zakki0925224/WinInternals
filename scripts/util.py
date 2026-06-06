@@ -40,7 +40,7 @@ class Socket:
             buf += chunk
         return buf
 
-    def close(self):
+    def kill(self):
         if self.sock:
             self.sock.close()
             self.sock = None

