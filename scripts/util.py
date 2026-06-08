@@ -2,6 +2,10 @@ import socket
 import struct
 
 
+def u32(x: int) -> bytes:
+    return x & 0xFFFFFFFF
+
+
 def le32(x: int) -> bytes:
     return struct.pack("<I", x)
 
