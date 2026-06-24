@@ -1,8 +1,14 @@
+import os
 import socket
 import struct
 
 
-def u32(x: int) -> bytes:
+def find_exe(script_path: str, name: str) -> str:
+    """Locate <name>.exe in the same directory as script_path."""
+    return os.path.join(os.path.dirname(os.path.abspath(script_path)), f"{name}.exe")
+
+
+def u32(x: int) -> int:
     return x & 0xFFFFFFFF
 
 

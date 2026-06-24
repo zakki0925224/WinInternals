@@ -9,7 +9,7 @@
 *.user
 *.userosscache
 *.sln.docstates
-*.env
+# *.env
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
@@ -429,3 +429,6 @@ FodyWeavers.xsd
 *.msp
 
 *.bin
+
+/build
+/work
