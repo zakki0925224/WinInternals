@@ -9,5 +9,6 @@ string(REPLACE "/RTC1" "" CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG}")
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/common/cmake")
 
-add_subdirectory(exploitation/01_stack_overflow/basic_ret_overwrite)
+add_subdirectory(exploitations/01_stack/bof_rop)
+add_subdirectory(exploitations/01_stack/bof_ret_overwrite)
 add_subdirectory(internals/resolve_func_from_peb)
